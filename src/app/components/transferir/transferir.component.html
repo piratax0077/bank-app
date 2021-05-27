@@ -1,0 +1,45 @@
+<h1>Transferir</h1>
+<ng-container *ngIf="!error">
+    <div class="success">
+        <p>Transferencia realizada correctamente</p>
+    </div>
+</ng-container>
+<p>Buscar Destinatario</p>
+<ng-container *ngIf="showUsers">
+    <div class="danger">
+        <p>No existen usuarios</p>
+    </div>
+</ng-container>
+<select name="" id="" #mySelect (change)="getUserById(mySelect.value)" [disabled]="showUsers">
+    <option value="0">-</option>
+    <option [value]="user._id" *ngFor="let user of users" >{{user.nombre}}</option>
+</select>
+<div class="row info-user">
+    <p class="h4">Detalle del destinatario</p>
+    <div class="col-md-4">
+        <p>Nombre:</p>
+        <p>Rut:</p>
+        <p>Correo:</p>
+        <p>Banco: </p>
+        <p>Tipo de cuenta: </p>
+        <p>N° de cuenta</p>
+    </div>
+    <div class="col-md-8">
+        <p>{{userSelected.nombre}}</p>
+        <p>{{userSelected.rut}}</p>
+        <p>{{userSelected.correo}}</p>
+        <p>{{userSelected.banco}}</p>
+        <p>{{userSelected.tipo_cuenta.descripcion}}</p>
+        <p>{{userSelected.n_cuenta}}</p>
+    </div>
+</div>
+
+<hr>
+<div class="info-user">
+    <p>Monto</p>
+    <form [formGroup]="formTransfer" (ngSubmit)="doTransfer(userSelected,monto)" novalidate >
+        <input formControlName="monto" type="text" name="" id="" class="form-control" [(ngModel)]="monto"  required>
+        <input type="submit" [disabled]="formTransfer.invalid || monto == 0 || userSelected.n_cuenta == 0" class="btn btn-danger" value="Transferir">
+    </form>
+</div>
+

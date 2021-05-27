@@ -1,0 +1,27 @@
+<ng-container *ngIf="!showTable">
+    <div class="danger">
+        <p>No existen transferencias</p>
+    </div>
+</ng-container>
+<table class="table" *ngIf="showTable">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre del destinatario</th>
+        <th scope="col">Rut</th>
+        <th scope="col">Banco</th>
+        <th scope="col">Tipo de cuenta</th>
+        <th scope="col">Monto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transfer of transfers; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{transfer.destinatario_id.nombre}}</td>
+        <td>{{transfer.destinatario_id.rut}}</td>
+        <td>{{transfer.destinatario_id.banco}}</td>
+        <td>{{transfer.tipo_cuenta.descripcion}}</td>
+        <td>{{transfer.monto | currency}}</td>
+      </tr>
+    </tbody>
+  </table>

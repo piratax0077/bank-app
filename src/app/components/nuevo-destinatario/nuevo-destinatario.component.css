@@ -1,0 +1,14 @@
+.success{
+    height: 50px;
+    padding: 17px;
+    margin-top: 5px;
+}
+
+.success p{
+    color: green;
+    font-size: 22px;
+}
+
+input[type="submit"]{
+    margin: 10px;
+}

@@ -1,0 +1,48 @@
+<ng-container *ngIf="!error">
+    <div class="success">
+        <p>Usuario creado correctamente</p>
+    </div>
+</ng-container>
+<form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate >
+    <div class="row info-user">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Rut</label>
+                <input formControlName="rut" type="text" name=""  class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Correo</label>
+                <input formControlName="correo" type="email" name="" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Banco</label>
+                <select formControlName="banco" name="" class="form-control" >
+                    <option [value]="bank.id" *ngFor="let bank of banks" >{{bank.name}} </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">N° de Cuenta</label>
+                <input formControlName="n_cuenta" type="text" name="" class="form-control" > 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Nombre</label>
+                <input formControlName="nombre" type="text" name="" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Telefono</label>
+                <input formControlName="telefono" type="number" name="" class="form-control"  >
+            </div>
+            <div class="form-group">
+                <label for="">Tipo de cuenta</label>
+                <select formControlName="tipo_cuenta" name="" class="form-control" > 
+                    <option [value]="tipo._id" *ngFor="let tipo of tipos_cuentas">{{tipo.descripcion}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    
+    <input type="submit" [disabled]="myForm.invalid" value="Crear" class="btn btn-warning">
+</form>

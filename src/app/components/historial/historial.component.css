@@ -1,0 +1,10 @@
+.success, .danger{
+    height: 50px;
+    padding: 17px;
+    margin-top: 5px;
+}
+
+.danger p{
+    color: red;
+    font-size: 22px;
+}

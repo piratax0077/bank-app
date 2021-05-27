@@ -1,0 +1,19 @@
+*{
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+header{
+    height: 100px;
+    display: block;
+    background-color: #eee;
+    padding: 20px;
+    border-bottom: 2px solid black;
+}
+
+header h2{
+    float: left;
+}
+
+header a{
+    float: right;
+    margin-right: 10px;
+}
