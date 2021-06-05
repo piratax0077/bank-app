@@ -14,6 +14,7 @@ export class HistorialComponent implements OnInit {
 
   constructor(public api: ApiService) { 
     this.api.getAllTransfer().subscribe((item) => {
+      console.log(item.transfers);
       if(item.transfers.length > 0){
         this.transfers = item.transfers;
       }else{

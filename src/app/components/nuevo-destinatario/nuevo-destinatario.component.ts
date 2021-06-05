@@ -18,12 +18,12 @@ export class NuevoDestinatarioComponent implements OnInit {
   constructor(public fb: FormBuilder, public api: ApiService) {
     this.myForm = this.fb.group({
       nombre: ['', [Validators.required]],
-      correo: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       telefono: ['', [Validators.required]],
       rut:['',[Validators.required]],
       tipo_cuenta: ['', [Validators.required]],
-      n_cuenta: ['', [Validators.required]],
-      banco: ['', [Validators.required]],
+      nCuenta: ['', [Validators.required]],
+      idBanco: ['', [Validators.required]],
     });
     this.api.getAllBanks().subscribe((i) => this.banks = i.banks);
     this.api.getTypesAccounts().subscribe((data) => this.tipos_cuentas = data.tipo_cuenta);
@@ -33,10 +33,9 @@ export class NuevoDestinatarioComponent implements OnInit {
   }
 
   saveData(){
+    console.log(this.myForm.value);
     this.api.addUser(this.myForm.value).subscribe((i) => {
-      setTimeout(() => {
-        this.error = false;
-      }, 2000);
+      this.error = false;
       
     })
   }

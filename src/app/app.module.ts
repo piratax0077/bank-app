@@ -7,13 +7,15 @@ import { HistorialComponent } from './components/historial/historial.component';
 import { TransferirComponent } from './components/transferir/transferir.component';
 import { NuevoDestinatarioComponent } from './components/nuevo-destinatario/nuevo-destinatario.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HistorialComponent,
     TransferirComponent,
-    NuevoDestinatarioComponent
+    NuevoDestinatarioComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

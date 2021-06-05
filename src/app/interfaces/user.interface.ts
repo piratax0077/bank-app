@@ -2,11 +2,11 @@ export interface UserInterface {
     id: string,
     nombre: string;
     rut: string;
-    correo: string;
+    email: string;
     telefono: number;
     banco: string;
-    tipo_cuenta: {
+    tipoCuenta: {
       descripcion: string
     };
-    n_cuenta: number;
+    nCuenta: number;
   }

@@ -36,12 +36,12 @@ export class TransferirComponent implements OnInit {
     this.userSelected = {
       id:'',
       nombre: '',
-      correo: '',
+      email: '',
       rut: '',
       banco:'',
-      n_cuenta: 0,
+      nCuenta: 0,
       telefono: 0,
-      tipo_cuenta:{
+      tipoCuenta:{
         descripcion:''
       }
     };
@@ -49,6 +49,7 @@ export class TransferirComponent implements OnInit {
     this.transfer = {
       bank_id:'',
       destinatario_id: '',
+      nombreUsuario:'',
       monto:0,
       rut:'',
       telefono:0,
@@ -64,20 +65,25 @@ export class TransferirComponent implements OnInit {
 
   getUserById(id: string){
     this.api.getUserById(id).subscribe(user => {
+      console.log(user.user);
       this.userSelected = user.user;
     } )
   }
 
   doTransfer(user:any,monto: number){
 
-    this.transfer.destinatario_id =user._id;
-    this.transfer.bank_id = user.banco;
+    console.log(user);
+
+    this.transfer.destinatario_id =user.id;
+    this.transfer.bank_id = user.idBanco;
     this.transfer.monto = monto;
     this.transfer.rut = user.rut;
     this.transfer.telefono = user.telefono;
-    this.transfer.tipo_cuenta = user.tipo_cuenta;
+    this.transfer.tipo_cuenta = user.tipoCuenta;
+    this.transfer.nombreUsuario = user.nombre;
 
     this.api.addTransfer(this.transfer).subscribe((i) => {
+      alert(i.msg);
       this.error = false;
     })
 

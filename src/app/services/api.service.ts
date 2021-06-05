@@ -10,7 +10,7 @@ import { TransferInterface } from '../interfaces/transfer.interface';
 export class ApiService {
 
   // Dirección de backend local
-  url: string = "http://localhost:3700";
+  url: string = "https://app-bank-ripley.herokuapp.com";
   
   // Dirección de backend externo
   url_: string = 'https://bast.dev/api/banks.php';
@@ -29,7 +29,7 @@ export class ApiService {
     return this.http.post(this.url+'/save-user',user);
   }
 
-  getUserById(id: string): Observable<any>{
+  getUserById(id: String): Observable<any>{
     return this.http.get(this.url+'/user/'+id);
   }
 
@@ -38,10 +38,10 @@ export class ApiService {
   }
 
   addTransfer(transfer: TransferInterface):Observable<any>{
-    return this.http.post(this.url+'/add-transfer',transfer);
+    return this.http.post(this.url+'/transfers/save',transfer);
   }
 
   getAllTransfer(): Observable<any>{
-    return this.http.get(this.url+'/transfer/');
+    return this.http.get(this.url+'/transfers/all');
   }
 }

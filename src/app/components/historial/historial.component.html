@@ -17,10 +17,10 @@
     <tbody>
       <tr *ngFor="let transfer of transfers; let i = index">
         <th scope="row">{{i + 1}}</th>
-        <td>{{transfer.destinatario_id.nombre}}</td>
-        <td>{{transfer.destinatario_id.rut}}</td>
-        <td>{{transfer.destinatario_id.banco}}</td>
-        <td>{{transfer.tipo_cuenta.descripcion}}</td>
+        <td>{{transfer.destinatario.nombre}}</td>
+        <td>{{transfer.destinatario.rut}}</td>
+        <td>{{transfer.bancoId}}</td>
+        <td>{{transfer.tipoCuenta.descripcion}}</td>
         <td>{{transfer.monto | currency}}</td>
       </tr>
     </tbody>

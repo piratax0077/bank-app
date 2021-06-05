@@ -1,0 +1,47 @@
+<div class="row" style="width: 100%;">
+    <div class="col-md-6">
+        <form action="">
+            <div class="form-group">
+                <label for="rut">Rut</label>
+                <input type="text" name="" id="" class="form-control" [(ngModel)]="user.rut.val" #rut="ngModel" [ngModelOptions]="{standalone: true}">
+            </div>
+            <small class="error" *ngIf="!user.rut.isValid() && rut.touched">{{user.rut.msg}}</small>
+            <div class="form-group">
+                <label for="">Correo</label>
+                <input type="email" name="" class="form-control" [(ngModel)]="user.email.val" #email="ngModel" [ngModelOptions]="{standalone: true}">
+            </div>
+            <small class="error" *ngIf="!user.email.isValid() && email.touched">{{user.email.msg}}</small>
+
+            <div class="form-group">
+                <label for="">Banco</label>
+                <select formControlName="banco" name="" class="form-control" >
+                    <option [value]="bank.id" *ngFor="let bank of banks" >{{bank.name}} </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">N° de Cuenta</label>
+                <input type="text" name="" class="form-control" [(ngModel)]="user.nCuenta.val" #nCuenta="ngModel" [ngModelOptions]="{standalone: true}" > 
+            </div>
+            <small class="error" *ngIf="!user.nCuenta.isValid() && nCuenta.touched">{{user.nCuenta.msg}}</small>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" name="" class="form-control" [(ngModel)]="user.nombre.val" #nombre="ngModel" [ngModelOptions]="{standalone: true}" >
+        </div>
+        <small class="error" *ngIf="!user.nombre.isValid() && nombre.touched">{{user.nombre.msg}}</small>
+        <div class="form-group">
+            <label for="">Telefono</label>
+            <input  type="text" name="" class="form-control" [(ngModel)]="user.telefono.val" #telefono="ngModel" [ngModelOptions]="{standalone: true}" >
+        </div>
+        <small class="error" *ngIf="!user.telefono.isValid() && telefono.touched">{{user.telefono.msg}}</small>
+        <div class="form-group">
+            <label for="">Tipo de cuenta</label>
+            <select formControlName="tipo_cuenta" name="" class="form-control" > 
+                <option [value]="tipo._id" *ngFor="let tipo of tipos_cuentas">{{tipo.descripcion}}</option>
+            </select>
+        </div>
+    </div>
+</div>

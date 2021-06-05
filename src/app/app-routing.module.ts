@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HistorialComponent } from './components/historial/historial.component';
 import { NuevoDestinatarioComponent } from './components/nuevo-destinatario/nuevo-destinatario.component';
+import { TestComponent } from './components/test/test.component';
 import { TransferirComponent } from './components/transferir/transferir.component';
 
 const routes: Routes = [
