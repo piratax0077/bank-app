@@ -11,6 +11,8 @@ export class HistorialComponent implements OnInit {
 
   public transfers!: Array<any>;
   public showTable: boolean = true;
+  public user: any;
+  public banks!: Array<any>;
 
   constructor(public api: ApiService) { 
     this.api.getAllTransfer().subscribe((item) => {
@@ -22,9 +24,14 @@ export class HistorialComponent implements OnInit {
       }
       
     });
+
+    
   }
 
   ngOnInit(): void {
+    this.api.getAllBanks().subscribe((i) => {
+      this.banks = i.banks;
+    });
   }
 
 }

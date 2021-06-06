@@ -6,9 +6,15 @@
 
 .success p{
     color: green;
-    font-size: 22px;
+    
 }
 
 input[type="submit"]{
     margin: 10px;
+}
+
+.info-user{
+    height: 100%;
+    margin-top: 10px;
+    padding: 20px;
 }

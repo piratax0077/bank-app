@@ -1,9 +1,7 @@
 <div class="container">
-  <header>
-    <h2>Mi banco - Nueva transferencia</h2>
-    <a class="btn btn-warning" [routerLink]="['/']">Nuevo Destinatario</a>
-    <a class="btn btn-warning" [routerLink]="['/transferir']">Transferir</a>
-    <a class="btn btn-warning" [routerLink]="['/historial']">Historial</a>
-  </header>
+  <app-header></app-header>
   <router-outlet></router-outlet>
+  <app-footer></app-footer>
 </div>
+
+

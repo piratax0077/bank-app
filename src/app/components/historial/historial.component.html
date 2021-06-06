@@ -3,7 +3,7 @@
         <p>No existen transferencias</p>
     </div>
 </ng-container>
-<table class="table" *ngIf="showTable">
+<table class="table" *ngIf="transfers; else loader">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -19,9 +19,12 @@
         <th scope="row">{{i + 1}}</th>
         <td>{{transfer.destinatario.nombre}}</td>
         <td>{{transfer.destinatario.rut}}</td>
-        <td>{{transfer.bancoId}}</td>
+        <td>{{transfer.destinatario.idBanco}}</td>
         <td>{{transfer.tipoCuenta.descripcion}}</td>
         <td>{{transfer.monto | currency}}</td>
       </tr>
     </tbody>
   </table>
+  <ng-template #loader>
+    <img src="http://pa1.narvii.com/6707/510b0daee67fbc091f14b9d8ef40aeb6c0d4dc7d_00.gif" alt="" >
+  </ng-template>

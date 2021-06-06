@@ -8,6 +8,8 @@ import { TransferirComponent } from './components/transferir/transferir.componen
 import { NuevoDestinatarioComponent } from './components/nuevo-destinatario/nuevo-destinatario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './components/test/test.component';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { FooterComponent } from './components/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { TestComponent } from './components/test/test.component';
     HistorialComponent,
     TransferirComponent,
     NuevoDestinatarioComponent,
-    TestComponent
+    TestComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

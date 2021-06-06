@@ -10,13 +10,13 @@
         <p>No existen usuarios</p>
     </div>
 </ng-container>
-<select name="" id="" #mySelect (change)="getUserById(mySelect.value)" [disabled]="showUsers">
+<select name="" id="" #mySelect (change)="getUserById(mySelect.value)" [disabled]="showUsers" *ngIf="users; else loader">
     <option value="0">-</option>
     <option [value]="user.id" *ngFor="let user of users" >{{user.nombre}}</option>
 </select>
 <div class="row info-user">
     <p class="h4">Detalle del destinatario</p>
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-4 col-4">
         <p>Nombre:</p>
         <p>Rut:</p>
         <p>Correo:</p>
@@ -24,11 +24,11 @@
         <p>Tipo de cuenta: </p>
         <p>N° de cuenta</p>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 col-sm-8 col-8">
         <p>{{userSelected.nombre}}</p>
         <p>{{userSelected.rut}}</p>
         <p>{{userSelected.email}}</p>
-        <p>{{userSelected.banco}}</p>
+        <p>{{bank}}</p>
         <p>{{userSelected.tipoCuenta.descripcion}}</p>
         <p>{{userSelected.nCuenta}}</p>
     </div>
@@ -42,4 +42,6 @@
         <input type="submit" [disabled]="formTransfer.invalid || monto == 0 || userSelected.nCuenta == 0" class="btn btn-danger" value="Transferir">
     </form>
 </div>
-
+<ng-template #loader>
+    <img src="http://pa1.narvii.com/6707/510b0daee67fbc091f14b9d8ef40aeb6c0d4dc7d_00.gif" alt="" >
+</ng-template>

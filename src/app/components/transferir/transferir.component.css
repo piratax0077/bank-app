@@ -6,17 +6,15 @@
 
 .success p{
     color: green;
-    font-size: 22px;
+    
 }
 
 .danger p{
     color: red;
-    font-size: 22px;
 }
 
 .info-user{
     height: 100%;
-    border: 1px solid black;
     margin-top: 10px;
     padding: 20px;
 }

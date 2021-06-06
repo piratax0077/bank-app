@@ -4,7 +4,7 @@ export interface UserInterface {
     rut: string;
     email: string;
     telefono: number;
-    banco: string;
+    idBanco: String;
     tipoCuenta: {
       descripcion: string
     };

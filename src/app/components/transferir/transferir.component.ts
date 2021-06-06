@@ -17,6 +17,8 @@ export class TransferirComponent implements OnInit {
   public monto: any;
   public showUsers: boolean = false;
   public error: boolean = true;
+  public banks!: Array<any>;
+  public bank!: String;
   formTransfer: FormGroup;
 
   constructor(public api: ApiService, public fb: FormBuilder) { 
@@ -25,6 +27,7 @@ export class TransferirComponent implements OnInit {
     });
     
     this.api.getAllUsers().subscribe((users) =>{ 
+      console.log(users.users);
       if(users.users.length == 0){
         this.showUsers = true;
       }else{
@@ -38,7 +41,7 @@ export class TransferirComponent implements OnInit {
       nombre: '',
       email: '',
       rut: '',
-      banco:'',
+      idBanco:'',
       nCuenta: 0,
       telefono: 0,
       tipoCuenta:{
@@ -57,6 +60,10 @@ export class TransferirComponent implements OnInit {
         descripcion:''
       }
     }
+
+    this.api.getAllBanks().subscribe((i) => {
+      this.banks = i.banks;
+    });
   }
 
   ngOnInit(): void {
@@ -65,8 +72,15 @@ export class TransferirComponent implements OnInit {
 
   getUserById(id: string){
     this.api.getUserById(id).subscribe(user => {
-      console.log(user.user);
+      
       this.userSelected = user.user;
+      
+      this.banks.forEach((bank) => {
+        
+        if(this.userSelected.idBanco === bank.id){
+          this.bank = bank.name;
+        }
+      })
     } )
   }
 
