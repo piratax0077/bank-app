@@ -27,7 +27,6 @@ export class TransferirComponent implements OnInit {
     });
     
     this.api.getAllUsers().subscribe((users) =>{ 
-      console.log(users.users);
       if(users.users.length == 0){
         this.showUsers = true;
       }else{
@@ -85,8 +84,6 @@ export class TransferirComponent implements OnInit {
   }
 
   doTransfer(user:any,monto: number){
-
-    console.log(user);
 
     this.transfer.destinatario_id =user.id;
     this.transfer.bank_id = user.idBanco;

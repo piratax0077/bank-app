@@ -21,6 +21,21 @@ export class TestComponent implements OnInit {
     tipo_cuenta: iValidation
   }
 
+  public users!: Array<any>;
+
+  public characters = [
+    'Ant-Man',
+    'Aquaman',
+    'Asterix',
+    'The Atom',
+    'The Avengers',
+    'Batgirl',
+    'Batman',
+    'Batwoman'
+  ];
+
+  searchText = '';
+
   constructor(public api: ApiService) {
     this.api.getAllBanks().subscribe((i)=>{
       this.banks = i.banks
@@ -119,6 +134,11 @@ export class TestComponent implements OnInit {
          }
        }
      }
+
+     this.api.getAllUsers().subscribe((users) => {
+       this.users = users.users;
+     });
+
    }
 
   ngOnInit(): void {
