@@ -1,4 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+form{
+    width: 50%;
+    margin: 0px auto;
+    padding: 10px;
+}
+
 .btn_general{
     background-color: #533277;
     color: white;
@@ -10,4 +15,8 @@
 
 .btn_general:hover{
     opacity: 0.9;
+}
+
+.error{
+    color: red;
 }

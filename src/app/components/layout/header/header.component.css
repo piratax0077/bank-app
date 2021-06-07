@@ -3,12 +3,13 @@
     height: 150px;
     margin-top: 10px;
     padding: 20px;
-    border: 1px solid black;
+    background-color: #e9ad24;
 }
 
 .header_top h2{
     line-height: 100px;
     float: left;
+    color: #533278;
 }
 
 .header_top img{
@@ -19,4 +20,6 @@
 #logo{
     width: 150px;
 }
+
+
 

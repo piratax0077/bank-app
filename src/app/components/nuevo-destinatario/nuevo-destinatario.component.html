@@ -3,6 +3,7 @@
         <p>Usuario creado correctamente</p>
     </div>
 </ng-container>
+<button class="btn btn-danger" (click)="logout()">Cerrar sesión</button>
 <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate >
     <div class="row info-user">
         <div class="col-md-6">
@@ -45,5 +46,5 @@
     </div>
     
     
-    <input type="submit" [disabled]="myForm.invalid" value="Crear" class="btn btn-success">
+    <input type="submit" [disabled]="myForm.invalid" value="Crear" class="btn_general">
 </form>

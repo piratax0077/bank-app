@@ -11,7 +11,7 @@ export class ApiService {
 
   // Dirección de backend local
   url: string = "https://app-bank-ripley.herokuapp.com";
-  
+  // url: string = "localhost:3700";
   // Dirección de backend externo
   url_: string = 'https://bast.dev/api/banks.php';
 
@@ -43,5 +43,9 @@ export class ApiService {
 
   getAllTransfer(): Observable<any>{
     return this.http.get(this.url+'/transfers/all');
+  }
+
+  login(login:any): Observable<any>{
+    return this.http.post(this.url+'/login',login);
   }
 }

@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bank-app';
-
+  public op!: boolean;
   
+  getAuth(v: any){
+    this.op = v;
+    console.log(this.op);
+  }
 }

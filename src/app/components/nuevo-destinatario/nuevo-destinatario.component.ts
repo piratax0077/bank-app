@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { UserInterface } from '../../interfaces/user.interface';
 import { ApiService } from 'src/app/services/api.service';
+import {CookieService} from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuevo-destinatario',
@@ -15,10 +17,10 @@ export class NuevoDestinatarioComponent implements OnInit {
   public tipos_cuentas!: Array<any>;
   public error: boolean = true;
 
-  constructor(public fb: FormBuilder, public api: ApiService) {
+  constructor(public fb: FormBuilder, public api: ApiService, public cookieService: CookieService, public router: Router) {
     this.myForm = this.fb.group({
       nombre: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      email: ['', [Validators.required, Validators.pattern("^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       telefono: ['', [Validators.required]],
       rut:['',[Validators.required]],
       tipo_cuenta: ['', [Validators.required]],
@@ -38,6 +40,14 @@ export class NuevoDestinatarioComponent implements OnInit {
       this.error = false;
       
     })
+  }
+
+  logout(){
+    const cookie = this.cookieService.check('token_access');
+    if(cookie){
+      this.cookieService.delete('token_access');
+      this.router.navigate(['/login']);
+    }
   }
   }
 

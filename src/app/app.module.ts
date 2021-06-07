@@ -11,6 +11,8 @@ import { TestComponent } from './components/test/test.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginComponent } from './components/login/login.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     TestComponent,
     HeaderComponent,
     FooterComponent,
-    FilterPipe
+    FilterPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

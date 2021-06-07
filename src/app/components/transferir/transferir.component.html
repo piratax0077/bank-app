@@ -39,7 +39,7 @@
     <p>Monto</p>
     <form [formGroup]="formTransfer" (ngSubmit)="doTransfer(userSelected,monto)" novalidate >
         <input formControlName="monto" type="text" name="" id="" class="form-control" [(ngModel)]="monto"  required>
-        <input type="submit" [disabled]="formTransfer.invalid || monto == 0 || userSelected.nCuenta == 0" class="btn btn-danger" value="Transferir">
+        <input type="submit" [disabled]="formTransfer.invalid || monto == 0 || userSelected.nCuenta == 0" class="btn_general" value="Transferir">
     </form>
 </div>
 <ng-template #loader>
